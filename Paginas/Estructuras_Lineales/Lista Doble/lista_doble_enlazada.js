@@ -7,13 +7,14 @@ class Nodo {
     constructor(dato) {
         this.dato = dato;
         this.siguiente = null;
-        
+        this.anterior = null;
     }
 }
 
 class Lista {
     constructor() {
         this.primero = null;
+        this.ultimo = null;
         this.size = 0;
     }
 
@@ -59,16 +60,7 @@ class Lista {
             }
             aux = aux.siguiente;
         }
-        if (this.primero == null) {
-            this.primero = nuevo;
-            this.ultimo = this.primero;
-            this.size++;
-        } else {
-            this.ultimo.siguiente = nuevo;
-            nuevo.anterior = this.ultimo;
-            this.ultimo = nuevo;
-            this.size++;
-        }
+        
 
     }
 

@@ -7,7 +7,7 @@ class Nodo {
     constructor(dato) {
         this.dato = dato;
         this.siguiente = null;
-        this.anterior = null;
+        
     }
 }
 
@@ -26,50 +26,49 @@ class Lista {
             this.size++;
         } else {
             this.ultimo.siguiente = nuevo;
-            nuevo.anterior = this.ultimo;
             this.ultimo = nuevo;
             this.size++;
         }
 
     }
-    remove(dato) {
+    find_nodo(node){
         let aux = this.primero
-        alert("remoce")
+        while (aux != null) {
+           if (aux.siguiente != null) {
+               if (aux.siguiente == node) {
+                   return aux;
+               }
+           }
+            aux = aux.siguiente;
+        }
+        return null
+    }
+    remove(dato) {
+        let aux = this.primero;
+       
         while(aux != null){
             if(aux.dato == dato){
-                let temp = aux.anterior;
-                if (temp == null) {
-                    if (aux.siguiente == null) {
-                        this.primero = null;
-                        
+                if (aux == this.primero) {
+                    if (this.primero.siguiente != null) {
+                        this.primero = this.primero.siguiente;
                     }else{
-                        this.primero = aux.siguiente;
-                        this.primero.anterior = null;
+                        this.primero = null;
                     }
-                    this.primero = aux.siguiente;
                 }else{
+                    let nuevo = this
                     if (aux.siguiente == null) {
+                       let temp =nuevo.find_nodo(aux);
                         temp.siguiente = null;
                     }else{
-                        temp.siguiente = aux.siguiente;
-                        aux.siguiente.anterior = temp;
+                        let temp = nuevo.find_nodo(aux);
+                        temp.siguiente = aux.siguiente; 
                     }
-                   
                 }
                 return;
             }
             aux = aux.siguiente;
         }
-        if (this.primero == null) {
-            this.primero = nuevo;
-            this.ultimo = this.primero;
-            this.size++;
-        } else {
-            this.ultimo.siguiente = nuevo;
-            nuevo.anterior = this.ultimo;
-            this.ultimo = nuevo;
-            this.size++;
-        }
+        
 
     }
 
