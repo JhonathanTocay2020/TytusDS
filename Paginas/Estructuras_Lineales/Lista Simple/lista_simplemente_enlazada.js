@@ -85,6 +85,7 @@ class Lista {
     }
 
 }
+
 function main () {
     let nuevo = new Lista()
     
@@ -96,6 +97,7 @@ function main () {
         nuevo.print()
         alert(nuevo.print())
 	});
+    
     $('.btn-Elimina').click(function(){
         var porId=document.getElementById("valor").value;
         

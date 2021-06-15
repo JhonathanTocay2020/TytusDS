@@ -27,6 +27,7 @@ class Pila {
         pila.push(porId)
         alert(porId + " Fue Insertado correctamente a la pila")
 	});
+
     $('.btn-Elimina').click(function(){
         
         alert("Se elimino el elemento: "+pila.pop())

@@ -15,10 +15,12 @@ class Cola{
         if(this.inicio == this.fin){
             return null;
         };
-
-        const valor = this.valor[this.inicio];
-        this.inicio++;
-        return valor;
+        if(this.inicio!=this.fin){
+            const valor = this.valor[this.inicio];
+            this.inicio++;
+            return valor;
+        };
+        
     };
 };
 
