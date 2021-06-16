@@ -1,30 +1,65 @@
-class Cola{
+$(document).ready(main);
+
+class Cola {
     constructor(){
-        this.valor = {};
-        this.inicio =0;
-        this.fin=0;
-    };
+        this.elementos = [];
+    }    
+    
+    encolar(elemento){
+      this.elementos.push(elemento);
+      return this.elementos;
+    }
 
-    encolar(dato){
-        this.valor[this.fin]=dato;
-        this.fin++;
-    };
+    desencolar(){
+      return this.elementos.shift();
+    }
 
-    sacar_cola(){
-        //verificar si hay algun valor en la fila
-        if(this.inicio == this.fin){
-            return null;
-        };
+    peek(){
+        return this.elementos[0];
+    }
 
-        const valor = this.valor[this.inicio];
-        this.inicio++;
-        return valor;
-    };
-};
+    size(){
+        return this.elementos.length;;
+    }
 
-const cola = new Cola();
-cola.encolar(1);
-cola.encolar('Jhonathan');
-cola.encolar('Juan')
-//console.log(cola);
-console.log(sacar_cola());
+    isEmpty = () => {
+      return this.elementos.length === 0;
+    }
+
+    print(){
+        return this.elementos;
+    }    
+  }
+
+function main () {
+    const queue = new Cola();
+    
+	$('.btn-Ingrese').click(function(){
+        let porId = document.getElementById("valor").value;
+        queue.encolar(porId);
+        console.log(queue.print())
+        alert("Cola: " + queue.print())
+	});
+
+  $('.btn-Elimina').click(function(){
+        alert("Se elimino el elemento: " + queue.desencolar() + ' ' + "Cola: " + queue.print())
+        console.log(queue.print())
+	});
+
+  $('.btn-Actualizar').click(function(){
+    alert("Actualizar")
+  });
+
+  $('.btn-Buscar').click(function(){
+    alert("Buscar") 
+  });
+
+  $('.btn-Guardar').click(function(){
+    alert("Guardar")
+  });
+   
+	// Mostramos y ocultamos submenus
+	$('.submenu').click(function(){
+		$(this).children('.children').slideToggle();
+	});
+}
