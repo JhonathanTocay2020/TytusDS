@@ -139,6 +139,18 @@ function main () {
         nuevo.print()
         alert(nuevo.print())
 	});
+    
+    $('.btn-Actualizar').click(function(){
+        alert("Actualizar")
+	});
+   
+    $('.btn-Buscar').click(function(){
+        alert("Buscar")
+	});
+
+    $('.btn-Guardar').click(function(){
+        alert("Guardar")
+	});
    
 	// Mostramos y ocultamos submenus
 	$('.submenu').click(function(){

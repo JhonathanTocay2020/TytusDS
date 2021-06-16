@@ -28,10 +28,22 @@ class Pila {
         alert(porId + " Fue Insertado correctamente a la pila")
 	});
 
-    $('.btn-Elimina').click(function(){
+  $('.btn-Elimina').click(function(){
         
         alert("Se elimino el elemento: "+pila.pop())
 	});
+
+  $('.btn-Actualizar').click(function(){
+    alert("Actualizar")
+  });
+
+  $('.btn-Buscar').click(function(){
+    alert("Buscar") 
+  });
+
+  $('.btn-Guardar').click(function(){
+    alert("Guardar")
+  });
    
 	// Mostramos y ocultamos submenus
 	$('.submenu').click(function(){
