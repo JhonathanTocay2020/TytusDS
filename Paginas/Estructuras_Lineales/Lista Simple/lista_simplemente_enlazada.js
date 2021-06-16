@@ -9,6 +9,7 @@ class Nodo {
         this.siguiente = null;
         
     }
+    
 }
 
 class Lista {
@@ -17,7 +18,7 @@ class Lista {
         this.ultimo = null;
         this.size = 0;
     }
-
+   
     add(dato) {
         let nuevo = new Nodo(dato)
         if (this.primero == null) {
@@ -99,6 +100,35 @@ class Lista {
         return valores;
     }
 
+    update(dato,nuevodato) {
+        var valores = []
+        let aux = this.primero;
+        
+        while (aux != null) {
+            if (aux.dato == dato) {
+                aux.dato = nuevodato;
+                return;
+            }
+            aux = aux.siguiente;
+        }
+
+        return valores;
+    }
+    search(dato) {
+        var valores = []
+        let aux = this.primero;
+        
+        while (aux != null) {
+            if (aux.dato == dato) {
+                return aux.dato;
+            }
+            aux = aux.siguiente;
+        }
+
+        return valores;
+    }
+
+
 }
 
 function main () {
@@ -119,15 +149,21 @@ function main () {
 	
         nuevo.remove(porId)
         nuevo.print()
-        nuevo.print()
+        
 	});
     
     $('.btn-Actualizar').click(function(){
-        alert("Actualizar")
+        let datoactualizado= prompt('Por cual numero desea cambiar',0);
+        alert("Se a actualizado");
+        var porId=document.getElementById("valor").value;
+        nuevo.update(porId,datoactualizado);
+        nuevo.print();
 	});
    
     $('.btn-Buscar').click(function(){
-        alert("Buscar")
+        var porId=document.getElementById("valor").value;
+        var data = nuevo.search(porId);
+        alert("El dato es: " + data)
 	});
 
     $('.btn-Guardar').click(function(){

@@ -118,6 +118,8 @@ class Lista {
     }
     }
 
+    
+
 }
 function main () {
     let nuevo = new Lista()
