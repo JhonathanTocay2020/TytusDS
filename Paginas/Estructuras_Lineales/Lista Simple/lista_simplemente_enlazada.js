@@ -75,9 +75,24 @@ class Lista {
     print() {
         var valores = []
         let aux = this.primero;
+        let capa = document.getElementById("capa");
+        
+        let capa2 = document.getElementById("capa1");
+        capa2.remove();
+        var c1 = document.createElement("div");
+        c1.setAttribute("id","capa1");
+        capa.appendChild(c1);
+        
+        
         while (aux != null) {
             valores.push(aux.dato);
-            console.log("Dato:", aux.dato);
+            var capa5 = document.getElementById("capa1");
+            var h1 = document.createElement("button");
+            h1.setAttribute("name","mails[]");
+            h1.style.width = '100px';
+            h1.setAttribute("height","100px");
+            h1.innerHTML = aux.dato;
+            capa5.appendChild(h1);
             aux = aux.siguiente;
         }
 
@@ -95,7 +110,7 @@ function main () {
 	
         nuevo.add(porId)
         nuevo.print()
-        alert(nuevo.print())
+        nuevo.print()
 	});
     
     $('.btn-Elimina').click(function(){
@@ -104,7 +119,7 @@ function main () {
 	
         nuevo.remove(porId)
         nuevo.print()
-        alert(nuevo.print())
+        nuevo.print()
 	});
     
     $('.btn-Actualizar').click(function(){

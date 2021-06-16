@@ -95,17 +95,17 @@ class AVL {
         if (nodo != null) {
             console.log("Valor:", nodo.valor);
             var capa = document.getElementById("capa");
-            var h1 = document.createElement("h1");
+            var h1 = document.createElement("input");
+            h1.setAttribute("type","email");
+            h1.setAttribute("name","mails[]");
             h1.innerHTML = nodo.valor;
             capa.appendChild(h1);
             this.pre_orden(nodo.izquierdo);
-            var h12 = document.createElement("h3");
-            h12.innerHTML = "Espacio";
-            capa.appendChild(h12);
+            
             this.pre_orden(nodo.derecho);
         }
     }
-
+    
     inOrden() {
         this.in_orden(this.raiz);
     }
