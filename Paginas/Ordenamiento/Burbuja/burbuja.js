@@ -60,7 +60,11 @@ function main () {
   $('.btn-Guardar').click(function(){
     alert("Guardar")
   });
-   
+  
+  //$('#btn_Cargar').click(function(){
+  //          console.log()
+  //});
+  
 	// Mostramos y ocultamos submenus
 	$('.submenu').click(function(){
 		$(this).children('.children').slideToggle();
@@ -81,7 +85,8 @@ function imprimir(i){
   const listaOrdenar = document.getElementById('listaOrdenar'); 
   var fragment = new DocumentFragment();
   const ul =document.createElement('ul');
-  ul.className = "list-group list-group-horizontal mt-2";
+  //ul.className = "list-group list-group-horizontal mt-2";
+  ul.className = "list-group list-group-horizontal cont";  
   ul.textContent = `Iteracion ${i}`;
 
   array.forEach((numero)=>{
@@ -92,4 +97,29 @@ function imprimir(i){
   });
   ul.appendChild(fragment);
   listaOrdenar.appendChild(ul);
+}
+
+//--------------------------------------------------
+function validarExt(){
+            
+  var input = document.getElementById('btn_Cargar');
+  var file = input.files[0];
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+  var json;
+
+  // Aquí guardamos en una variable el resultado de parsear el JSON
+  json = JSON.parse(e.target.result);
+  //console.log(json);
+  
+  for(i=0;i<json.valores.length;i++){
+    //console.log(json.valores[i]);
+    array.push(json.valores[i]);
+  }
+  console.log('---------------------------------------------');
+  console.log(array);
+
+};
+reader.readAsText(file);
 }

@@ -10,6 +10,34 @@ body {
 	background:#0E6655;
 }
 
+div.cont{
+	max-width: 1000px;
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid #ccc;
+	
+}
+div#contenedor{
+	max-width: 1250px;
+	
+	flex-wrap: wrap;
+	align-items: center;
+	border: 1px solid #ccc;
+}
+
+.est{
+	background-color: hsl(122, 39%, 49%); /* Green */
+  	border: #011826;
+	color: white;
+  	padding: 10px 20px;
+  	text-align: center;
+  	text-decoration: none;	
+  	width: auto;
+  	font-size: 16px;
+  	cursor: pointer;
+	margin:1px;
+}
+
 .btn-Ingrese{
 	background-color: #4CAF50; /* Green */
   	border: none;
@@ -79,7 +107,6 @@ body {
   	cursor: pointer;
 	margin:10px;	
 }
-
 input#btn_Cargar{
 	position: absolute;
 	top: 0px;

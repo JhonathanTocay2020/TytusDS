@@ -10,44 +10,62 @@
     <h1>Pagina</h1>
 
     <script>
-        fetch("ordenamientos_ejemplo_1.json")
-            .then(response => response.json())
-            .then(data => {
-            console.log(data)
-        })
+        
+        function ordenar(array){
+            for(let i= 0; i< array.length;i++){
+                for(let j = i + 1;j<array.length;j++){
+                    if(array[j]<array[i]){
+                        aux = array[j];
+                        array[j]= array[i];
+                        array[i] = aux;
+                    }                        
+                }      
+             }
+            //console.log(array);
+        }
 
         function validarExt(){
-            var archivoInput = document.getElementById('archivoInput');
-            var archivoRuta = archivoInput.value;
-            var extPermitidas = /(.json)$/i;
-
-            console.log(archivoRuta);
             
-            if(!extPermitidas.exec(archivoRuta)){
-                alert('Asegurate de haber seleccionado un .JSON');
-                archivoInput.value = '';
-                
-                return false;
-            }else{
-                if(archivoInput.files && archivoInput.files[0]){
-                    var visor = new FileReader();
-                    
-                    visor.onload = function(e){
-                        document.getElementById('visorArchivo').innerHTML = '<embed src= "' + e.target.result +'" width = "500" height ="500">';
-                        
-                    }
-                    visor.readAsDataURL(archivoInput.files[0]);
-                    console.log(Object(visor.readAsDataURL(archivoInput.files[0])));
-                }
-            }
+        var input = document.getElementById('file'),
+        code = document.getElementById('code');
+            var file = input.files[0];
+            
+            var reader = new FileReader();
+            reader.onload = function(e) {
+            var json;
+            // Aquí mostramos el texto que contiene el archivo
+            //code.value = e.target.result;
+
+            // Aquí guardamos en una variable el resultado de parsear el JSON
+            json = JSON.parse(e.target.result);
+            ordenar(json.valores);       
+            escritura(json,'ordenamiento');
+          };
+          reader.readAsText(file);
         }
+
+        function escritura(data, filename){
+            let file = new Blob([JSON.stringify(data)],{type:'application/json'});
+            let a = document.createElement('a');
+            a.href = URL.createObjectURL(file);
+            a.download = `${filename}.json`;
+            a.click()
+            console.log(a)
+        }
+
     </script>
 
     <section class="text-center">
-        <input type="file" id="archivoInput" onchange="return validarExt()">
+        <!--<input type="file" id="archivoInput" onchange= "return validarExt()">
         <div id ="visorArchivo">
 
         </div>
+        <input id="file" type="file" accept="txt/json" onchange= "return escritura()"/><br/>-->
+
+        <input id="file" type="file" accept="txt/json" onchange= "return validarExt()"/><br/>
+        
+        <textarea id="code" name="code" rows="5" cols="50"></textarea>
+
     </section>
     
 
