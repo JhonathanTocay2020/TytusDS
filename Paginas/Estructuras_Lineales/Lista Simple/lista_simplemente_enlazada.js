@@ -135,8 +135,7 @@ function main () {
     let nuevo = new Lista()
     
 	$('.btn-Ingrese').click(function(){
-        var porId=document.getElementById("valor").value;
-        
+        var porId = document.getElementById("valor").value;        
 	
         nuevo.add(porId)
         nuevo.print()
@@ -144,8 +143,7 @@ function main () {
 	});
     
     $('.btn-Elimina').click(function(){
-        var porId=document.getElementById("valor").value;
-        
+        var porId=document.getElementById("valor").value;       
 	
         nuevo.remove(porId)
         nuevo.print()

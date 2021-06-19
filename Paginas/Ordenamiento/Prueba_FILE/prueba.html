@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test File</title>
+</head>
+<body>
+    <h1>Pagina</h1>
+
+    <script>
+        fetch("ordenamientos_ejemplo_1.json")
+            .then(response => response.json())
+            .then(data => {
+            console.log(data)
+        })
+
+        function validarExt(){
+            var archivoInput = document.getElementById('archivoInput');
+            var archivoRuta = archivoInput.value;
+            var extPermitidas = /(.json)$/i;
+
+            console.log(archivoRuta);
+            
+            if(!extPermitidas.exec(archivoRuta)){
+                alert('Asegurate de haber seleccionado un .JSON');
+                archivoInput.value = '';
+                
+                return false;
+            }else{
+                if(archivoInput.files && archivoInput.files[0]){
+                    var visor = new FileReader();
+                    
+                    visor.onload = function(e){
+                        document.getElementById('visorArchivo').innerHTML = '<embed src= "' + e.target.result +'" width = "500" height ="500">';
+                        
+                    }
+                    visor.readAsDataURL(archivoInput.files[0]);
+                    console.log(Object(visor.readAsDataURL(archivoInput.files[0])));
+                }
+            }
+        }
+    </script>
+
+    <section class="text-center">
+        <input type="file" id="archivoInput" onchange="return validarExt()">
+        <div id ="visorArchivo">
+
+        </div>
+    </section>
+    
+
+</body>
+</html>
