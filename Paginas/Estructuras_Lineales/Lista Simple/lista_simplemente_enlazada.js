@@ -88,7 +88,7 @@ class Lista {
             valores.push(aux.dato);
             var capa5 = document.getElementById("capa1");
             var h1 = document.createElement("button");
-            h1.className = "est";
+            h1.className = "sad";
             h1.setAttribute("name","mails[]");
             //h1.style.width = '100px';
             //h1.setAttribute("height","100px");
@@ -128,25 +128,60 @@ class Lista {
         return valores;
     }
 
+    //--------------------------------------------------------------------------------
+    p_datos() {
+        var valores = [];
+        let aux = this.primero;
+        //-----------------------------------------------------
+        while (aux != null) {
+            valores.push(aux.dato);
+            aux = aux.siguiente;
+        }
+        //----------------------------------------------------
+        
 
+        if (valores.length == 0){
+            alert("No se ha ingresado valores");
+        }else{
+            console.log('------------ Valores ------------');
+            console.log(valores);
+            this.print();        
+            Datos_json(categoria,nombre,repetir,animacion,pos,valores);
+        }            
+        
+        return valores;
+    }
+    //--------------------------------------------------------------------------------
 }
 //----------------------------------------------------------------
 let  json;
-let nuevo = new Lista()
+let nuevo = new Lista();
+axm = [];
+//--------------- Datos JSON ---------------------
+let categoria = "Estructura Lineal";
+let nombre = "Lista Simplemente/doblemente/circular_simplemente/circular doblemente Enlazada";
+let repetir = true;
+let animacion = 0;
+let pos = "INICIO/FIN/ORDENADO";
+//-------------------------------------------------
+
 function main () {
     
 	$('.btn-Ingrese').click(function(){
-        var porId = document.getElementById("valor").value;
-        nuevo.add(porId)
-        nuevo.print()
-        nuevo.print()
+        var porId = document.getElementById("valor");
+        nuevo.add(porId.value);
+        axm.push(porId.value);
+        nuevo.print();
+        // Limpiar input
+        porId.value ="";
+        porId.focus();
 	});
     
     $('.btn-Elimina').click(function(){
-        var porId=document.getElementById("valor").value;       
-	
-        nuevo.remove(porId)
-        nuevo.print()
+        var porId = document.getElementById("valor").value;       
+        axm.remove(porId);
+        nuevo.remove(porId);
+        nuevo.print();
         
 	});
     
@@ -165,7 +200,7 @@ function main () {
 	});
 
     $('.btn-Guardar').click(function(){
-        alert("Guardar")
+        nuevo.p_datos();
 	});
    
 	// Mostramos y ocultamos submenus
@@ -176,29 +211,47 @@ function main () {
 
 // --------------------- Cargar Datos --------------------- 
 function validarExt(){
-        
         var input = document.getElementById('btn_Cargar');
         var file = input.files[0];
         var reader = new FileReader();
         reader.onload = function(e) {
         // Aquí guardamos en una variable el resultado de parsear el JSON
         json = JSON.parse(e.target.result);
-        //ordenar(json.valores);       
-        //escritura(json,'ordenamiento');
-        console.log(json);
+        // --------------------------------------------------------------
+        categoria = json.categoria;
+        nombre = json.nombre;
+        repetir = json.repeticion;
+        animacion = json.animacion;
+        pos = json.posicion;
         //--------------- Insertar Datos Masivos --------------------------
-        console.log(json.categoria);
-        console.log(json.nombre);
         console.log(json.repeticion);
-        for(index = 0; index<json.valores.length;index++){
-            nuevo.add(json.valores[index]);
-            nuevo.print();
-        }
+        
+        //for(index = 0; index<json.valores.length;index++){
+        //    axm.push(json.valores[index]);
+        //}
+
         if (json.repeticion == true){
             console.log('Verdader');
+            for(index = 0; index<json.valores.length;index++){
+                nuevo.add(json.valores[index]);
+                nuevo.print();
+            }
             //Datos_json(json.categoria,json.nombre,json.repeticion,json.animacion,json.posicion,json.valores);
         }else if (json.repeticion == false){
-            console.log("falso");
+            console.log("-------------------falso---------------------");
+            for(index = 0; index<json.valores.length;index++){
+                if(axm.includes(json.valores[index])== false){
+                    axm.push(json.valores[index]);
+                    nuevo.add(json.valores[index]);
+                    nuevo.print();
+                }
+                else{
+                    console.log(json.valores[index])
+                }
+            }
+            //for(let xm = 0; xm < axm.length;xm++){
+
+            //}
             //Datos_json();
         }
       };

@@ -17,16 +17,61 @@ div.cont{
 	border: 1px solid #ccc;
 	
 }
+
 div#contenedor{
 	max-width: 1250px;
-	
 	flex-wrap: wrap;
 	align-items: center;
 	border: 1px solid #ccc;
 }
 
+#listaAgregar{
+	display: flex;
+	width: 1000px;
+	left:30px;
+	flex-wrap: wrap;
+}
+
+#listaOrdenar{
+	
+}
+
+#listaOrdenar ul{
+	display: flex;
+	border: solid;
+	width: 1000px;
+	left:30px;
+	flex-wrap: wrap;
+}
+
+.sad{
+	background-color: hsl(122, 39%, 49%); /* Green */
+  	border: #011826;
+	color: white;
+  	padding: 10px 20px;
+  	text-align: center;
+  	text-decoration: none;	
+  	width: auto;
+  	font-size: 16px;
+  	cursor: pointer;
+	margin:1px;
+}
+
 .est{
 	background-color: hsl(122, 39%, 49%); /* Green */
+  	border: #011826;
+	color: white;
+  	padding: 10px 20px;
+  	text-align: center;
+  	text-decoration: none;	
+  	width: auto;
+  	font-size: 16px;
+  	cursor: pointer;
+	margin:1px;
+}
+
+.ord{
+	background-color: #2E86C1; /* Green */
   	border: #011826;
 	color: white;
   	padding: 10px 20px;

@@ -9,8 +9,8 @@ function main () {
     array.push(Number(porId.value));
     console.log(array);
     //alert("Cola: " + array);
-    const html = document.createElement('li');
-    html.className = "list-group-item";
+    const html = document.createElement('div');
+    html.className = "est";
     html.textContent = Number(porId.value);
     listaAgregar.appendChild(html);
 
@@ -73,10 +73,9 @@ function main () {
 //-----------------------------------------------------------
 
 function dibujar(elem,elem2){
-  const listaOrdenar = document.getElementById('listaOrdenar');  
-
+  const listaOrdenar = document.getElementById('listaOrdenar');
   const html = document.createElement('span');
-  html.className="text-danger fw-bold fs-6";
+  html.className = "text-danger fw-bold fs-6";
   html.textContent = `${elem} - ${elem2}`;
   listaOrdenar.appendChild(html);
 }
@@ -84,14 +83,14 @@ function dibujar(elem,elem2){
 function imprimir(i){
   const listaOrdenar = document.getElementById('listaOrdenar'); 
   var fragment = new DocumentFragment();
-  const ul =document.createElement('ul');
+  const ul = document.createElement('ul');
   //ul.className = "list-group list-group-horizontal mt-2";
-  ul.className = "list-group list-group-horizontal cont";  
-  ul.textContent = `Iteracion ${i}`;
+  //ul.className = "list-group list-group-horizontal";  
+  ul.textContent = `Iteracion ${i} `;
 
   array.forEach((numero)=>{
-      const li = document.createElement('li');
-      li.className="list-group-item";
+      const li = document.createElement('div');
+      li.className = "ord";
       li.textContent = numero;
       fragment.appendChild(li);
   });
