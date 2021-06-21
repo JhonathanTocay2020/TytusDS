@@ -114,6 +114,20 @@ class Lista {
         
         return valores;
     }
+    update(dato,nuevodato) {
+        var valores = []
+        let aux = this.primero;
+        
+        while (aux != null) {
+            if (aux.dato == dato) {
+                aux.dato = nuevodato;
+                return;
+            }
+            aux = aux.siguiente;
+        }
+
+        return valores;
+    }
 }
 // ------------------------- Variables Globales ----------------------
 let nuevo = new Lista();
@@ -195,7 +209,7 @@ function validarExt(){
         }
         //Datos_json(json.categoria,json.nombre,json.repeticion,json.animacion,json.posicion,json.valores);
     }else if (json.repeticion == false){
-        console.log("-------------------falso---------------------");
+        console.log("------falso-----");
         for(index = 0; index<json.valores.length;index++){
             if(axm.includes(json.valores[index])== false){
                 axm.push(json.valores[index]);
@@ -233,5 +247,5 @@ objeto = {
     "valores": v
 }
 console.log(objeto);
-escritura(objeto,'Lista_Simplemente_Enlazada');
+escritura(objeto,'Lista_Doblemente_Enlazada');
 }

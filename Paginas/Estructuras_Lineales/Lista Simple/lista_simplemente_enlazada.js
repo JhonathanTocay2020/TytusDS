@@ -179,7 +179,7 @@ function main () {
     
     $('.btn-Elimina').click(function(){
         var porId = document.getElementById("valor").value;       
-        axm.remove(porId);
+        //axm.remove(porId);
         nuevo.remove(porId);
         nuevo.print();
         
