@@ -125,7 +125,7 @@ class Lista {
             aux = aux.siguiente;
         }
 
-        return valores;
+        return " ";
     }
 
     //--------------------------------------------------------------------------------
@@ -196,7 +196,12 @@ function main () {
     $('.btn-Buscar').click(function(){
         var porId=document.getElementById("valor").value;
         var data = nuevo.search(porId);
-        alert("El dato es: " + data)
+        if (data == " ") {
+            alert("Elemento no encontrado");
+        }else{
+            alert("El Elemento " + data + " Si existe en esta lista")
+        }
+        
 	});
 
     $('.btn-Guardar').click(function(){

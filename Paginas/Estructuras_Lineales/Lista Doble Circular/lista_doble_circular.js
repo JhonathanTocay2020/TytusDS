@@ -26,7 +26,7 @@ class Lista {
         this.primero = nuevo;
         this.primero.siguiente = nuevo;
         this.primero.anterior = nuevo;
-           
+           x|
         }else if(this.primero.siguiente == this.primero){
             this.primero.siguiente = nuevo;
             nuevo.anterior = this.primero;
@@ -117,6 +117,9 @@ class Lista {
 
         return valores;
     }
+    }
+    update(){
+        
     }
 
 }
