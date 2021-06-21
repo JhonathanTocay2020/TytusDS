@@ -169,21 +169,44 @@ function main () {
         var porId=document.getElementById("valor").value;
         nuevo.add(porId)
         nuevo.print()
-        alert(nuevo.print())
+        porId.value ="";
+        
+        
 	});
     $('.btn-Elimina').click(function(){
         var porId=document.getElementById("valor").value;
         nuevo.remove(porId)
         nuevo.print()
-        alert(nuevo.print())
+        nuevo.print()
 	});
 
     $('.btn-Actualizar').click(function(){
-        alert("Actualizar")
+        var porId = document.getElementById("valor").value;
+        var existe = nuevo.search(porId)
+        if (porId == "") {
+            alert("Por favor ingrese un dato")
+        }else if (existe == "") {
+            alert("El Dato que desea actualizar no existe")
+        }else{
+            let datoactualizado= prompt('Por cual numero desea cambiar',0);
+                nuevo.update(porId,datoactualizado)
+                alert("Se a actualizado");
+            
+            
+        }
+        nuevo.print();
+        
 	});
    
     $('.btn-Buscar').click(function(){
-        alert("Buscar")
+        var porId = document.getElementById("valor").value;
+        var existe = nuevo.search(porId)
+        if (existe == "") {
+            alert("El Elemento es Inexistente");
+        }else{
+            alert("El Elemento "+existe + " Si Existe")
+        }
+        
 	});
 
     $('.btn-Guardar').click(function(){
@@ -254,14 +277,14 @@ let objeto;
 // --------------------- Datos ---------------------
 function Datos_json(c,n,r,a,p,v){
 
-objeto = {
-    "categoria": c,
-    "nombre": n,
-    "repeticion": r,
-    "animacion": a,
-    "posicion": p,
-    "valores": v
-}
+    objeto = {
+        "categoria": c,
+        "nombre": n,
+        "repeticion": r,
+        "animacion": a,
+        "posicion": p,
+        "valores": v
+    }
     console.log(objeto);
     escritura(objeto,'Lista_Circular_Simplemente_Enlazada');
 }
