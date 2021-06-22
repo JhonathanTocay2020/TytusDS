@@ -1,0 +1,26 @@
+{
+  "name": "TytusDS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gh-pages": "^3.2.3",
+    "vis": "^4.21.0-EOL"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhonathanTocay2020/TytusDS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepages": "https://jhonathantocay2020.github.io/TytusDS/",
+  "bugs": {
+    "url": "https://github.com/JhonathanTocay2020/TytusDS/issues"
+  },
+  "homepage": "https://github.com/JhonathanTocay2020/TytusDS#readme"
+}
