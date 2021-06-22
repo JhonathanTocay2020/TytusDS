@@ -84,8 +84,6 @@ function imprimir(i){
   const listaOrdenar = document.getElementById('listaOrdenar'); 
   var fragment = new DocumentFragment();
   const ul = document.createElement('ul');
-  //ul.className = "list-group list-group-horizontal mt-2";
-  //ul.className = "list-group list-group-horizontal";  
   ul.textContent = `Iteracion ${i} `;
 
   array.forEach((numero)=>{
@@ -100,7 +98,7 @@ function imprimir(i){
 
 //--------------------------------------------------
 function validarExt(){
-            
+  const listaAgregar = document.getElementById('listaAgregar');        
   var input = document.getElementById('btn_Cargar');
   var file = input.files[0];
 
@@ -114,11 +112,21 @@ function validarExt(){
   
   for(i=0;i<json.valores.length;i++){
     //console.log(json.valores[i]);
+    const html = document.createElement('div');
+    html.className = "est";
+    html.textContent = json.valores[i];
+    listaAgregar.appendChild(html);
     array.push(json.valores[i]);
   }
   console.log('---------------------------------------------');
   console.log(array);
-
+  //----------------------------------------------------------------
+  
 };
 reader.readAsText(file);
+}
+
+//-------------------------------------------------------
+function print(){
+
 }
