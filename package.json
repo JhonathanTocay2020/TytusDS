@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d proyecto"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepages": "https://jhonathantocay2020.github.io/TytusDS/",
   "bugs": {
     "url": "https://github.com/JhonathanTocay2020/TytusDS/issues"
   },
-  "homepage": "https://github.com/JhonathanTocay2020/TytusDS#readme"
+  "homepage": "https://github.com/JhonathanTocay2020/TytusDS/"
 }
