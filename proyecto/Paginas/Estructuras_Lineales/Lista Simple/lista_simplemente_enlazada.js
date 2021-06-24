@@ -1,5 +1,11 @@
 $(document).ready(main);
 
+//Servidor
+
+
+
+
+//finservidor
 var contador = 1;
 
 
@@ -171,6 +177,15 @@ let pos = "INICIO/FIN/ORDENADO";
 //-------------------------------------------------
 
 function main () {
+    const { Router } = require('express');
+    const router = new Router();
+
+
+    const movies = require('listaSimple.json');
+
+    router.get('/', (req, res) => {
+    res.json(movies);
+    });
     
 	$('.btn-Ingrese').click(function(){
         var porId = document.getElementById("valor");

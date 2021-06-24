@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.17.1",
     "gh-pages": "^3.2.3",
+    "morgan": "^1.10.0",
     "vis": "^4.21.0-EOL"
   },
   "devDependencies": {},
